@@ -1,0 +1,11 @@
+{% if pole_list %}
+  <ul>
+    {% for pole in pole_list %}
+    <li><a href="{% url 'detail' pole.id %}">
+      {{ pole.id }}: {{ pole }}
+    </a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No poles are available...</p>
+{% endif %}
