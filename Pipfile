@@ -12,4 +12,5 @@ django = "*"
 python_version = "3.9"
 
 [scripts]
-server = "python polevaultcity/manage.py runserver"
+server = "python apps/manage.py runserver"
+test = "python apps/manage.py test poles"
