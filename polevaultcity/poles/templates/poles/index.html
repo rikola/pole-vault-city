@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 {% if pole_list %}
   <ul>
     {% for pole in pole_list %}
@@ -9,3 +12,4 @@
 {% else %}
   <p>No poles are available...</p>
 {% endif %}
+{% endblock %}

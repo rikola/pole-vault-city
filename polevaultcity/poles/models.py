@@ -4,20 +4,28 @@ from django.db import models
 
 
 class Pole(models.Model):
+    CARBON = 'CF'
+    FIBERGLASS = 'FG'
+    MATERIAL_CHOICES = [(CARBON, 'Carbon Fiber'), (FIBERGLASS, 'Fiberglass')]
+
     brand = models.CharField(max_length=100)
-    inches = models.IntegerField()  # TODO: Change inches to
+    inches = models.IntegerField()
     weight = models.IntegerField()
-    purchased_at = models.DateField(blank=True, null=True)
-    # TODO: barcode
-    # TODO: condition eg.broken, good
-    # TODO: material eg. carbon, fiberglass
+    purchase_date = models.DateField(blank=True, null=True)
+    barcode = models.CharField(max_length=20, unique=True, blank=True, null=True)
+    functional = models.BooleanField(default=True)  # Is pole broken?
+    material = models.CharField(choices=MATERIAL_CHOICES, default=FIBERGLASS, max_length=2)
+
+    def pretty_length(self):
+        feet: int = self.inches // 12
+        inch: int = self.inches % 12
+        return f"{feet}'{inch}\""
 
     def is_rented(self):
         return False
 
-    def age(self):
-        purchased = self.purchased_at.value_from_object(datetime.datetime)
-        return datetime.date.today() - purchased
+    def age(self, cur=datetime.datetime.now()):
+        return cur - self.purchase_date
 
     def __str__(self):
         return f'{self.brand} - {self.inches} - {self.weight}'
