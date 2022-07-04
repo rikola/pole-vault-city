@@ -19,7 +19,7 @@ class Pole(models.Model):
     def pretty_length(self):
         feet: int = self.inches // 12
         inch: int = self.inches % 12
-        return f"{feet}'{inch}\""
+        return f"{feet}' {inch}\""
 
     def is_rented(self):
         return False

@@ -2,13 +2,28 @@
 
 {% block content %}
 {% if pole_list %}
-  <ul>
-    {% for pole in pole_list %}
-    <li><a href="{% url 'detail' pole.id %}">
-      {{ pole.id }}: {{ pole }}
-    </a></li>
-    {% endfor %}
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Brand</th>
+        <th scope="col">Length</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Material</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pole in pole_list %}
+      <tr>
+        <th scope="row">{{pole.id}}</th>
+        <td>{{pole.brand}}</td>
+        <td>{{pole.pretty_length}}</td>
+        <td>{{pole.weight}} lbs</td>
+        <td>{{pole.material}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% else %}
   <p>No poles are available...</p>
 {% endif %}

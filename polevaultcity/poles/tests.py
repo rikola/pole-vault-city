@@ -10,7 +10,7 @@ class PoleModelTests(TestCase):
     def test_pretty_length(self):
         item = Pole(inches=125)
         output = item.pretty_length()
-        self.assertEqual(output, "10'5\"")
+        self.assertEqual(output, "10' 5\"")
 
     def test_age_computes_diff(self):
         old = datetime.datetime(2022, 4, 1)
