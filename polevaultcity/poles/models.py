@@ -5,9 +5,12 @@ from django.db import models
 
 class Pole(models.Model):
     brand = models.CharField(max_length=100)
-    inches = models.IntegerField()
+    inches = models.IntegerField()  # TODO: Change inches to
     weight = models.IntegerField()
     purchased_at = models.DateField(blank=True, null=True)
+    # TODO: barcode
+    # TODO: condition eg.broken, good
+    # TODO: material eg. carbon, fiberglass
 
     def is_rented(self):
         return False
