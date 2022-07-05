@@ -4,12 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+django = "4.0.6"
+gunicorn = "*"
+dj-database-url = "*"
+whitenoise = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.9.13"
 
 [scripts]
 server = "python apps/manage.py runserver"

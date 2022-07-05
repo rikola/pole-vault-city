@@ -27,7 +27,7 @@ jobs:
         pip install pipenv
     - name: Pipenv Activate
       run: |
-        pipenv install --dev
+        pipenv install --dev --ignore-pipfile
     - name: Run Tests
       env:
         SECRET_KEY: ${{ secrets.SecretKey }}
