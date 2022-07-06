@@ -8,6 +8,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
+
+Relevant ENV settings
+DJANGO_DEBUG=<boolean>
+SECRET_KEY=<string> # Needs to be set in prod manually. Dev uses .env file
+DATABASE_URL=<string> # Points to Heroku Postgres in prod. Dev uses SQLite.
 """
 import os
 from pathlib import Path
@@ -87,7 +92,6 @@ DATABASES = {
 # Heroku: Update database configuration from $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=100)
 DATABASES['default'].update(db_from_env)
-
 
 
 # Password validation

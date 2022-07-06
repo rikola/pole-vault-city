@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath app polevaultcity.wsgi
+web: gunicorn --pythonpath apps polevaultcity.wsgi:application
